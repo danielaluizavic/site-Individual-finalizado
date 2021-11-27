@@ -1,0 +1,117 @@
+* {
+    font-family: "Crimson Text", serif;
+}
+
+
+  .site-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+ 
+
+
+  a.site-logo {
+    font-size: 40px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #fff;
+    text-decoration: none;
+    font-family: serif;
+    margin-top: 13px;
+    text-shadow: 0 0 0.2em rgb(81, 81, 81),rgb(76, 76, 76) 0.2em rgb(95, 95, 95),
+    0 0 0.2em rgb(96, 96, 96);
+    margin-left: 36%;
+  }
+ 
+
+
+/*ajuste do quadrado no centro */
+.login-page2{
+    width: 360px;
+    padding: 8% 0 0;
+    margin: auto;
+    margin-top: 6%;
+}
+
+
+
+
+
+body {
+    background: #000000; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #000000 , #000000); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #000000 , #000000); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+#form {
+    width: 65%;
+    margin-left: 35%;
+}
+
+.right {
+    text-align: right;
+    margin-top: -45px;
+}
+
+.center {
+    text-align: center;
+}
+
+.container {
+    margin: 50px auto;
+    width: 500px;
+    border: 2px solid rgb(255, 255, 255);
+    padding: 3% 3%;
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow:-3px 5px 15px rgb(95, 95, 95);
+}
+
+button {
+    margin: 15px auto 0 auto;
+    display: block;
+    padding: 5px 15px;
+    border-radius: 10px;
+    font-size: 1.25em;
+    background: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    color: rgb(255, 255, 255);
+    background: rgb(164, 164, 164);
+}
+
+label {
+    font-size: 1.25em;
+    padding: 1%;
+}
+
+@media only screen and (max-width: 550px) {
+    .container {
+        width: 94%;
+    }
+}
+
+a.looks{
+    color: white;
+    margin-left: 90%;
+    font-size: 20px;
+
+}
+
+
+.looks {
+    background-color: rgb(78, 78, 78);
+    border-radius: 10px;
+   
+}
+
+#miranda{
+    margin-left: 20%;
+    margin-top: 5%;
+}

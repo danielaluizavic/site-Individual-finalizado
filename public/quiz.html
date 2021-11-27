@@ -1,0 +1,106 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="quiz.css">
+    <link href='https://fonts.googleapis.com/css?family=Crimson+Text' rel='stylesheet' type='text/css'>
+    <link rel="shortcut icon" href="D (3).png" type="image/x-icon">
+    
+
+</head>
+<body>
+
+    <header class="header-area">
+     
+              <!-- site logo -->
+              <a href="index.html" class="site-logo">FASHION ADDICTED</a>
+              <li><a href="SJBVN.html" class="looks">Vê looks</a></li>
+      
+    </header>
+
+  
+    <div class="container">
+
+       
+
+        <section id="instructions" class="center">
+            <h2 id="titulo" style="color: white;"></h2>
+            <h2>Vamos ver os filmes de moda que você conhece?</h2>
+            <h3>Bora começar.</h3>
+            <button id="startBtn">começar</button>
+        </section>
+
+        <section id="quiz">
+            <div>
+                <h3 class="left">Sua Pontuação:  <span id="displayScore">0</span></h3>
+                <h3 class="right">Pergunta: <span id="displayQCount">1</span> de  5</h3>
+            </div>
+            <div>
+                <h2 id="askQuestion" class="center"></h2>
+
+                <form id="form">
+                    <div>
+                                           
+                        <input id="label0" type="radio" name="option" value="">
+                        <label id="answer0" for=""></label>
+                    </div>
+                    <div>
+                        <input id="label1" type="radio" name="option" value="">
+                        <label id="answer1" for=""></label>
+                    </div>
+                    <div>
+                        <input id="label2" type="radio" name="option" value="">
+                        <label id="answer2" for=""></label>
+                    </div>
+                    <div>
+                        <input id="label3" type="radio" name="option" value="">
+                        <label id="answer3" for=""></label>
+                    </div>
+                </form>
+
+            <button id="submitBtn">Enviar</button>
+            </div>
+        </section>
+
+        <section id="showScore">
+            <h2 id="inform" class="center"></h2>
+            <button id="resetBtn">Tente novamente?</button>
+            <img id="miranda" src="source.gif" width="299px" height="250px">
+        </section>
+
+    </div>
+<form id="form_quiz" action="" style="display: none;">
+<input type="text" name="num" id="num">
+<input type="text" name="fkcadastro" id="fkcadastro">
+</form>
+<!-- JavaScript -->
+<script src="quiz.js"></script>
+</body>
+</html>
+<script>
+    var nome_user;
+    var pont;
+    function tudo(){
+fetch("/usuarios/tudo", {
+    method: "GET",
+}).then(function (resposta) {
+
+
+    resposta.json().then(function (data){
+       console.log(data);
+        let len = data.length;
+        for (let i = 0; i < len; i++){
+        let arquivo = data[i];
+            if(arquivo.nome == sessionStorage.NOME_USUARIO){
+                pont = arquivo.pontuacao;
+                nome_user = arquivo.nome;
+                titulo.innerHTML = (`Olá ${nome_user}, você já fez o quiz e tem uma média de ${pont} pontos`);
+            }
+        }
+    });
+}).catch(function(error){
+    console.error(`ERROR`, error);
+});
+}
+tudo();
+</script>

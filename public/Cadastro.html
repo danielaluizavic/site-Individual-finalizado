@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FASHION ADDICTED</title>
+    <link rel="shortcut icon" href="D (3).png" type="image/x-icon">   
+
+ 
+
+    <link rel="stylesheet" href="stylerC.css">
+    
+    <script src="./assets/js/funcoes.js"></script>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    
+
+
+  
+        <header class="header-area">
+            <!-- site-navbar start -->
+            <div class="navbar-area">
+              <div class="container">
+                  
+                <nav class="site-navbar">
+                  <!-- site logo -->
+                  <a href="index.html" class="site-logo">FASHION ADDICTED</a>
+          
+                 
+            
+          
+                  <!-- nav-toggler for mobile version only -->
+                  <button class="nav-toggler">
+                    <span></span>
+                  </button>
+                </nav>
+              </div>
+            </div><!-- navbar-area end -->
+        </header>
+
+    <div class="login-page">
+        
+        <div class="form">
+            <div class="card medio">
+                <div class="formulario">
+                    <form id="form_cadastro" class="login-form" >
+                        <h2>Bem-Vindo!!</h2> <br>
+                        <h3>Cadastre-se aqui</h3><br>
+
+
+                     
+            Nome:
+            <input name="nome" type="text" placeholder="Dani Luiza">
+            <br>
+            Senha:
+            <input name="senha" type="password" placeholder="******">
+            <br>
+            Confirmação da Senha:
+            <input name="confirmacao-senha" type="password" placeholder="******">
+            <br>
+        </form>
+        <button class="btn" onclick="cadastrar()">Cadastrar</button>
+                    <div id="div_aguardar" class="loading-div" style="display: none; width: 10%;">
+                        <img src="./assets/circle-loading.gif" id="loading-gif">
+                    </div>
+    
+                    <div id="div_erros_login">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+ 
+</div>
+
+</body>
+
+</html>
+
+<script>
+
+    function limparFormulario() {
+        document.getElementById("form_cadastro").reset();
+    }
+
+    function cadastrar() {
+
+        var formulario_cadastro = new URLSearchParams(new FormData(document.getElementById("form_cadastro")));
+
+        var nome = formulario_cadastro.get("nome");
+        var senha = formulario_cadastro.get("senha");
+
+
+        // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
+        if (nome == "" || senha == "") {
+            
+            window.alert("Preencha todos os campos para prosseguir!");
+            if (nome == "")  {
+                console.log('nome está em branco')
+            }
+            if (senha == "" )  {
+                console.log('senha está em branco')
+            }
+            finalizarAguardar();
+            return false;
+        }
+        
+
+        fetch("/usuarios/cadastrar", {
+            method: "POST",
+            body: formulario_cadastro
+        }).then(function (resposta) {
+
+            console.log("resposta: ", resposta);
+
+            if (resposta.ok) {
+                window.alert("Cadastro realizado com sucesso!");
+                window.location = "login.html";
+            } else {
+                throw("Houve um erro ao tentar realizar o cadastro!");
+            }
+        }).catch(function (resposta) {
+            console.log(`#ERRO: ${resposta}`);
+        });
+
+        return false;
+    }
+
+</script>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FASHION ADDICTED</title>
+    <link rel="shortcut icon" href="D (3).png" type="image/x-icon">
+    <script src="./assets/js/funcoes.js"></script>
+    <link rel="shortcut icon" href="D (1).png" type="image/x-icon">
+
+    <link rel="stylesheet" href="styler2.css">
+
+</head>
+<body>
+    <header class="header-area">
+        <!-- site-navbar start -->
+        <div class="navbar-area">
+          <div class="container">
+            <nav class="site-navbar">
+              <!-- site logo -->
+              <a href="index.html" class="site-logo">FASHION ADDICTED</a>
+      
+             
+            
+      
+              <!-- nav-toggler for mobile version only -->
+              <button class="nav-toggler">
+                <span></span>
+              </button>
+            </nav>
+          </div>
+        </div><!-- navbar-area end -->
+    </header>
+
+    <div class="login-page2">
+        <div class="form2">
+            <div class="formulario">
+            <form id="form_login" class="login-form2" method="post" onsubmit="return entrar()">
+                <h2>Olá de volta!!</h2> <br>
+                NOME
+                <input name="nome"  type="text" placeholder="Dani">
+                <br>
+                Senha:
+                <input name="senha" type="password" placeholder="******">
+                <br>
+                <div  class = " Login" >
+                    <button class="btn_login" type="submit">Login</botão>
+                </div>
+                <p class="message2">
+                    <a href="Cadastro.html">Cadastre-se aqui</a>
+                </p> 
+            </form>
+            <div id="div_aguardar" class="loading-div" style="display: none;width: 30%;">
+                <img src="./assets/circle-loading.gif" id="loading-gif">
+            </div>
+
+            <div id="div_erros_login">
+
+            </div>
+        </div>
+        </div>
+    </div>
+
+    
+</body>
+</html>
+<script>
+ function limparFormulario() {
+        document.getElementById("form_login").reset();
+    }
+
+    function entrar() {
+        aguardar();
+
+        var formulario = new URLSearchParams(new FormData(document.getElementById("form_login")));
+
+        var nome = formulario.get("nome");
+        var senha = formulario.get("senha");
+
+
+        // TODO: VERIFICAR AS VALIDAÇÕES QUE ELES ESTÃO APRENDENDO EM ALGORITMOS 
+        if (nome == "" || senha == "") {
+            window.alert("Preencha todos os campos para prosseguir!");
+            finalizarAguardar();
+            return false;
+        }
+
+      
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            body: formulario
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+                resposta.json().then(json => {
+                    console.log(json);
+                    console.log(JSON.stringify(json));
+
+                    sessionStorage.EMAIL_USUARIO = json.email;
+                    sessionStorage.NOME_USUARIO = json.nome;
+                    sessionStorage.ID_USUARIO = json.idcadastro;
+
+                    setTimeout(function () {
+                        window.location = "quiz.html";
+                    }, 1000); // apenas para exibir o loading
+
+                });
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+</script>

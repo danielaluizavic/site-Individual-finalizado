@@ -1,0 +1,130 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+  /*Cadastro*/
+
+
+  /* ajuste do header*/
+
+  .container{
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+    position: fixed;
+   background-color: rgba(0, 0, 0, 0.361);
+   
+   
+    
+  }
+
+  /* navbar regular css start */
+  .navbar-area {
+    background: rgba(92, 3, 3, 0.545);
+    border-bottom: 1px solid #000;
+    
+    
+  }
+  .site-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    
+  }
+  a.site-logo {
+    font-size: 30px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #fff;
+    text-decoration: none;
+    margin-top: 10px;
+    font-family: serif;
+    margin-top: 13px;
+    
+  }
+ 
+
+/*ajuste do quadrado de cadastro no centro */
+.login-page{
+    width: 360px;
+    padding: 8% 0 0;
+    margin: auto;
+
+    
+}
+
+
+
+ /*ajustar o quadrado de cadastro colocando fundo e tals*/
+ .form{
+     position: relative;
+     background: white;
+     max-width: 360px;
+     padding: 45px;
+     text-align: center;
+     border: 1px solid #3a0404;
+    border-radius: 4px;
+    box-shadow: 0px 0px 5px #3a0404;
+    position: relative;
+    box-shadow: 0 40px 60px #3a0404;
+    border: 2px solid #3a0404;
+    border-radius: 30px 20px;
+   
+ }
+
+
+  /* ajustar os inout */
+  .form input{
+      background: #f2f2f2;
+      width: 100%;
+      border: 0;
+      margin: 0 0 15px;
+      padding: 15px;
+      box-sizing: border-box;
+      font-size: 14px;
+      border: 1px solid #3a0404;
+      border-radius: 4px;
+      box-shadow: 0px 0px 5px #3a0404;
+      position: relative;
+  
+  }
+
+  /* ajustar tudo no botão*/
+  .form button{
+      background: black;
+      width: 100%;
+      border: 0;
+      padding: 15px;
+      color: #ffffff;
+      font-size: 14px;
+      border-radius: 20px;
+  }
+
+   /* para da um efeitono botão ficando verde */
+.form button:hover, .form button:active,.form button:focus{
+    background: #3a0404;
+}
+
+/* fundo*/
+body{
+    background: linear-gradient(to left, rgb(0, 0, 0), #000000);
+    font-family: "Roboto", sans-serif;
+}
+
+/* ajusta a palavra inicio*/
+.navbar3 li a {
+    text-decoration: none;
+    color: black;
+    margin-left: 1600;
+}
+
+.header .titulo{
+    margin-top: 2%;
+}
+
+
+
